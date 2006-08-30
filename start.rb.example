@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path(File.dirname(__FILE__) + "/lib")
+require 'bogglehax'
+require 'irc/client'
+
+# LOG_PATH = 'log/bogglehax.log'
+
+# IRC::Client.logger = Logger.new(LOG_PATH, 'weekly')
+IRC::Client.logger = Logger.new(STDOUT)
+
+c = IRC::Client.new
+c.merge_config({
+  :host => 'server.com', 
+  :user => 'bogglehax', 
+  :realname => 'bogglehax irc library', 
+  :nick => 'bogglehax',
+  :game_channel => '#boggle', # what channel the game is in
+  :game_bot => 'BoggleBot',   # what bot to monitor for the start of a game
+  :hack_mode => :informative, # default hack mode when starting
+})
+c.start
+
+%w{INT HUP}.each do |signal|
+  trap(signal) { c.quit('killed by console')}
+end
+
+$0 = 'bogglebot'
+
+# puts "starting bogglebot, logging to #{LOG_PATH}. ctrl+c to quit."
+
+c.wait_for_quit
