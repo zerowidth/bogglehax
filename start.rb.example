@@ -25,7 +25,7 @@ c.start
   trap(signal) { c.quit('killed by console')}
 end
 
-$0 = 'bogglebot'
+$0 = 'bogglehax'
 
 # puts "starting bogglebot, logging to #{LOG_PATH}. ctrl+c to quit."
 

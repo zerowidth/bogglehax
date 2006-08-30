@@ -69,6 +69,9 @@ class BoggleHax < IRC::Plugin
       when /#{@client.state[:nick]}.*shut up/
         @mode = nil
         @client.channel_message(@game_channel, "ok, i'll shut my dirty mouth")
+      when /#{@client.state[:nick]}.*what/ # what are you?
+        being = @mode ? @mode.to_s : 'quiet'
+        @client.channel_message(@game_channel, "i am being #{being}" )
       end
 
     end
