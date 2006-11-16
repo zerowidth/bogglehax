@@ -36,18 +36,15 @@ class BoggleHax < IRC::Plugin
         
       when /WINNER: #{@client.state[:nick]}/
         messages = [
-          "haha! i made all you punk bitches suck it down!",
           "sukkit, trebek! suck it long, and suck it hard!",
           "<nelson>haw haw</nelson>",
           "i love the smell of napalm in the morning",
           "duffman says, OH YEAH!",
           "i got 99 problems but my score ain't one",
-          "\001ACTION pisses on your grandmother's grave\001",
           "i'm ssssssmokin'!",
           "HE. COULD. GO. ALL. THE. WAY!",
           "i'm here to kick ass and chew bubble gum. and i'm all out of gum.",
           "\001ACTION giggles, 'did i do that?'\001",
-          "there's a party in my pants, and you're all invited!",
           "this must be the shallow end of the gene pool",
           "how did you all get here, the short bus?",
         ]
