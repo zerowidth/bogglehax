@@ -52,7 +52,7 @@ class BoggleHax < IRC::Plugin
         @client.channel_message(@game_channel, messages[which]) if @mode == :mean
 
       when /(WINNER|TIE):/
-        @client.channel_message(@game_channel, "did you find #{@words.first(5).join(', ')}?") if @mode == :informative
+        @client.channel_message(@game_channel, "out of #{@words.size} potential words, did you find #{@words.first(5).join(', ')}?") if @mode == :informative
       end
 
     else # messages from everyone else
